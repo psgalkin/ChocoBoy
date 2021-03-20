@@ -3,12 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Chocolate
+  - ConveyorSegment
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Chocolate
   - Water
   - UI
   - 

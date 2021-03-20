@@ -5,18 +5,50 @@ using UnityEngine;
 
 public class BoyController : MonoBehaviour
 {
-    private Rigidbody _rigigbody;
+    [SerializeField] private InGameUi _inGameUi;
+
+    private BoyAnimation _boyAnimation;
+    private CurrencyController _currencyController;
     private BoyState _boyState;
 
+    private void Awake()
+    {
+        _currencyController = GetComponent<CurrencyController>();
+    }
 
     private void Start()
     {
-        _rigigbody = GetComponent<Rigidbody>();
+        _boyAnimation = GetComponent<BoyAnimation>();
         _boyState = BoyState.Ilde;
     }
 
+    public void StartMove()
+    {
+        _boyState = BoyState.OnMoving;
+    }
+
+    public void OnTakeChocolate(Chocolate chocolate)
+    {
+        _boyAnimation.StopMove();
+        
+        if (chocolate.Type == ChocolateType.Chocolate || chocolate.Type == ChocolateType.Rafaello ||
+            chocolate.Type == ChocolateType.Truffele)
+        {
+            _currencyController.AddChocolate(chocolate);
+            _boyState = BoyState.OnStartTakeChocolate;
+        } 
+        else if (chocolate.Type == ChocolateType.Dirt || chocolate.Type == ChocolateType.Nails ||
+             chocolate.Type == ChocolateType.Glass || chocolate.Type == ChocolateType.Shit)
+        {
+            _currencyController.AddScum(chocolate);
+            _boyState = BoyState.OnStartTakeScum;
+        }    
+    }
+    
     private void Update()
     {
+        OnStartUpdate();
+        
         switch(_boyState)
         {
             case BoyState.Ilde:
@@ -80,4 +112,22 @@ public class BoyController : MonoBehaviour
     {
         _boyState = BoyState.OnMoving;
     }
+
+
+
+    private void OnStartUpdate()
+    {
+        _inGameUi.SetChocolate(_currencyController.GetChocolateVal());
+        _inGameUi.SetScum(_currencyController.GetScumVal());
+    }
+
+    private void OnLevelWin()
+    {
+        
+    }
+    private void OnLevelLoss()
+    {
+        
+    }
+    
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,12 @@ using UnityEngine;
 
 public class BoyAnimation : MonoBehaviour
 {
-    [SerializeField] private Animator _animator;
+    private Animator _animator;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     void Start()
     {
@@ -19,7 +25,7 @@ public class BoyAnimation : MonoBehaviour
 
     public void StopMove()
     {
-        _animator.SetBool("Moving", false);
+        //_animator.SetBool("Moving", false);
     }
 
     public void TakeChocolate()

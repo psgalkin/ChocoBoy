@@ -5,7 +5,9 @@ using UnityEngine;
 public class Chocolate : MonoBehaviour
 {
     [SerializeField] public ChocolateType Type;
+    [SerializeField] public float pointsVal;
     private Rigidbody _rigidBody;
+    
     // Start is called before the first frame update
     void Start()
     {

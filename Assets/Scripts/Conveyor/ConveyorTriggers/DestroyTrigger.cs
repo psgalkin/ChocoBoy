@@ -4,7 +4,7 @@ public class DestroyTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        
-        other.gameObject.GetComponent<ConveyorSegment>().OnDestroy();
+        if (other.gameObject.CompareTag("ConveyorSegment"))
+            other.gameObject.GetComponent<ConveyorSegment>().OnDestroy();
     }
 }

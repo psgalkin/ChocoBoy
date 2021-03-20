@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Conveyor : MonoBehaviour
 {
-    [SerializeField] private GameController _gameController;
+    [SerializeField] private LevelData _levelData;
 
     [SerializeField] private Transform _conveyorStartPoint;
     [SerializeField] private Transform _startNewSegmentPoint;
@@ -30,7 +30,7 @@ public class Conveyor : MonoBehaviour
         GameObject segment = _factory.GetConveyorSegment();
         segment.transform.position = _conveyorStartPoint.position;
         segment.transform.rotation = _conveyorStartPoint.rotation;
-        segment.GetComponent<ConveyorSegment>().StartMove(_gameController.Data.ConveyorSpeed);
+        segment.GetComponent<ConveyorSegment>().StartMove(_levelData.ConveyorSpeed);
         _currentSegment = segment;
     }
 
@@ -39,10 +39,10 @@ public class Conveyor : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(
-                Random.Range(_gameController.Data.ChcolateIntervals.IntervalStart,
-                _gameController.Data.ChcolateIntervals.IntervalEnd));
+                Random.Range(_levelData.ChcolateIntervals.IntervalStart,
+                    _levelData.ChcolateIntervals.IntervalEnd));
 
-            foreach (var chocolate in _gameController.Data.ChocolateProbabilityes)
+            foreach (var chocolate in _levelData.ChocolateProbabilityes)
             {
                 if (Random.Range(1, 100) < chocolate.Probability)
                 {

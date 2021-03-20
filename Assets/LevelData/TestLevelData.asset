@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc02cc78f65b3f64b80053db1bec6334, type: 3}
   m_Name: TestLevelData
   m_EditorClassIdentifier: 
-  ConveyorSpeed: 2
+  ConveyorSpeed: 4
   ChcolateIntervals:
-    IntervalStart: 0.5
-    IntervalEnd: 0.5
+    IntervalStart: 1
+    IntervalEnd: 1
   ChocolateProbabilityes:
   - ChocolateType: 1
-    Probability: 80
+    Probability: 100
   - ChocolateType: 7
-    Probability: 20
+    Probability: 0
