@@ -1369,6 +1369,7 @@ GameObject:
   - component: {fileID: 1170168271}
   - component: {fileID: 1170168270}
   - component: {fileID: 1170168269}
+  - component: {fileID: 1170168273}
   m_Layer: 0
   m_Name: ChocoBoy
   m_TagString: Untagged
@@ -1497,7 +1498,7 @@ Animator:
   m_GameObject: {fileID: 1170168262}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e5057d4402c675489e5d4970e6815fa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1541,6 +1542,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b55049edb7328f742af1dad28a816512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1170168273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170168262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a597582814dbf44b5dadbcc605732c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1186647643

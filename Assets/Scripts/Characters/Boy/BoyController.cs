@@ -27,6 +27,11 @@ public class BoyController : MonoBehaviour
         _boyState = BoyState.OnMoving;
     }
 
+    public void SetState(BoyState state)
+    {
+        _boyState = state;
+    }
+    
     public void OnTakeChocolate(Chocolate chocolate)
     {
         _boyAnimation.StopMove();
@@ -45,7 +50,7 @@ public class BoyController : MonoBehaviour
         }    
     }
     
-    private void Update()
+    private void FixedUpdate()
     {
         OnStartUpdate();
         
@@ -90,6 +95,7 @@ public class BoyController : MonoBehaviour
 
     private void OnStartTakeScum()
     {
+        _boyAnimation.TakeScum();
         _boyState = BoyState.OnTaking;
     }
 
@@ -100,6 +106,7 @@ public class BoyController : MonoBehaviour
 
     private void OnStartTakeChocolate()
     {
+        _boyAnimation.TakeChocolate();
         _boyState = BoyState.OnTaking;
     }
 
@@ -110,6 +117,7 @@ public class BoyController : MonoBehaviour
 
     private void OnStartMove()
     {
+        _boyAnimation.StartMove();
         _boyState = BoyState.OnMoving;
     }
 
