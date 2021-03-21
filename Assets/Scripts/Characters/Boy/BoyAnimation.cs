@@ -10,16 +10,17 @@ public class BoyAnimation : MonoBehaviour
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        
     }
 
     void Start()
     {
-        
+        _animator = GetComponentInChildren<Animator>();
     }
 
     public void StartMove()
     {
+        Debug.Log("onStartMethod");
         _animator.SetBool("Moving", true);
     }
 

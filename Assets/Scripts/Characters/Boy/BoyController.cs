@@ -10,6 +10,7 @@ public class BoyController : MonoBehaviour
     private BoyAnimation _boyAnimation;
     private CurrencyController _currencyController;
     private BoyState _boyState;
+    public bool IsRun;
 
     private void Awake()
     {
@@ -49,6 +50,7 @@ public class BoyController : MonoBehaviour
             _boyState = BoyState.OnStartTakeScum;
         }    
     }
+    
     
     private void FixedUpdate()
     {
@@ -127,6 +129,10 @@ public class BoyController : MonoBehaviour
     {
         _inGameUi.SetChocolate(_currencyController.GetChocolateVal());
         _inGameUi.SetScum(_currencyController.GetScumVal());
+        //if (IsRun)
+        Debug.Log("onstartUpdate");
+        _boyAnimation.StartMove();
+        //else _boyAnimation.StopMove();
     }
 
     private void OnLevelWin()
