@@ -11,16 +11,23 @@ public class BoyOnMapActions : MonoBehaviour
     private bool _goForChocolate;
     private GameObject _targetChocolate;
     private BoyController _boyController;
+    private Rigidbody _rb;
     
     private void Awake()
     {
         _goForChocolate = false;
         _agent = GetComponent<NavMeshAgent>();
         _boyController = GetComponent<BoyController>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
+        //if (Math.Abs(_rb.velocity.magnitude) > 0.01f)
+         //   _boyController.IsRun = true;
+        //else
+        //    _boyController.IsRun = false;
+
         if (_goForChocolate)
         {
             if (_targetChocolate == null)
